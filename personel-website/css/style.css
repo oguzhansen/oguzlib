@@ -1,0 +1,134 @@
+@font-face {
+    font-family: 'bebas_neueregular';
+    src: url('bebasneue-regular-webfont.woff2') format('woff2'),
+         url('bebasneue-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+*
+{
+	color:white;
+	font-family: Righteous;
+}
+
+#container
+{
+	width: 100%;
+	font-size: 30px;
+	height: 100%;
+	background: url("bg.jpeg") no-repeat fixed center;
+}
+
+
+#container .bas
+{
+	font-size:17px;
+	color:yellow;
+	padding-top:18%;
+}
+
+#container .ad
+{
+	margin-top:-7px;
+	font-size:37px;
+}
+
+#container .ilgi
+{
+	font-size:17px;
+	margin-top:-29px;
+}
+
+.button
+{
+	background:transparent;
+	padding:10px;
+	border-radius:15px;
+	border:1px solid white;
+}
+
+.button a
+{
+	text-decoration:none;
+}
+
+#info
+{
+	height:100%;
+}
+
+#info img
+{
+	padding-top:100px;
+	padding-left:30px;
+	padding-right:30px;
+	float:left;
+}
+
+#info .infobas
+{
+	font-size:25px;
+	padding-top:100px;
+}
+
+#contact
+{
+	width:100%;
+	height:100%;
+	background: url("bgcontact.jpg") no-repeat fixed center;
+}
+
+input[type=text], input[type=email], select {
+	width: 60%;
+	background:transparent;
+	border:1px solid white;
+	border-radius:10px;
+	padding:10px;
+}
+
+::placeholder
+{
+	color:white;
+}
+
+input[type=submit] {
+	width: 60%;
+	background:transparent;
+	border:1px solid white;
+	border-radius:10px;
+	padding:10px;
+	cursor:pointer;
+}
+
+textarea
+{
+	width: 60%;
+	height: 20%;
+	background:transparent;
+	border:1px solid white;
+	border-radius:10px;
+	padding:10px;
+}
+
+.adress
+{
+	float:left;
+	padding-left:23%;
+	padding-top:3%;
+}
+
+.phone
+{
+	float:left;
+	padding-left:7%;
+	padding-top:3%;
+}
+
+.email
+{
+	float:left;
+	padding-left:7%;
+	padding-top:3%;
+}
