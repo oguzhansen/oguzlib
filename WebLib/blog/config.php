@@ -1,7 +1,9 @@
 <?php
 
-    $db = mysqli_connect("localhost","root","","blog");
-
-    mysqli_set_charset($db, "utf8");
+    try{
+        $db = new PDO('mysql:host=localhost;dbname=blog;charset=utf8', 'root', '');
+    }catch(PDOException $e){
+        die('Veritabanı hatası: ' . $e);
+    }
 
 ?>
