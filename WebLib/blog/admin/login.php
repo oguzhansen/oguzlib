@@ -24,10 +24,9 @@
                 if(isset($_POST["loginPost"]))
                 {
                     $kadi = $_POST["kadi"];
-                    $pass = $_POST["pass"];
+                    $pass = md5($_POST["pass"]);
 
-                    $user = mysqli_query($db,"select * from users where username = '$kadi' and password = '$pass'");
-                    $user = mysqli_fetch_array($user);
+                    $user = $db->query("select * from users where username = '$kadi' and password = '$pass'")->fetch(PDO::FETCH_ASSOC);
 
                     if($user)
                     {
