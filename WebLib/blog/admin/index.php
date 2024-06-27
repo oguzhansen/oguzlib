@@ -57,7 +57,7 @@
                         
                         if(isset($_GET["silid"]))
                         {
-                            $sil = mysqli_query($db,"DELETE FROM posts where post_id = '".$_GET["silid"]."'");
+                            $sil = $db->exec("DELETE FROM posts where post_id = '".$_GET["silid"]."'");
 
                             echo '<div class="alert alert-success">Başarıyla Silindi.</div>';
 
@@ -98,7 +98,7 @@
 
                             if($title != "" && $content != "")
                             {
-                                $ekle = mysqli_query($db, "INSERT INTO posts(post_title,post_content) values('$title','$content')");
+                                $ekle = $db->exec("INSERT INTO posts(post_title,post_content) values('$title','$content')");
                                 echo '<div class="alert alert-success">Başarıyla eklendi</div>';
                                 header("Refresh: 1; url=index.php");
                             }
@@ -121,9 +121,9 @@
                     <h4>İçerikler</h4><br/>
                     <?php
                     
-                        $veri = mysqli_query($db, "SELECT * FROM posts order by post_id desc");
+                        $veri = $db->exec("SELECT * FROM posts order by post_id desc");
 
-                        while($content = $veri->fetch_array())
+                        while($content = $veri->fetch(PDO::FETCH_ASSOC))
                         {
                     
                     ?>
