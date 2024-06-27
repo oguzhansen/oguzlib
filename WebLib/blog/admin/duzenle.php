@@ -11,9 +11,7 @@ else{
 include "../config.php";
 
     $id = $_GET["duzid"];
-
-    $veri = mysqli_query($db,"select * from posts where post_id = '$id'");
-    $veri = mysqli_fetch_array($veri);
+    $veri = $db->query("SELECT * FROM posts WHERE post_id = '$id'")->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -86,9 +84,15 @@ include "../config.php";
 
                             if($title != "" && $content != "")
                             {
-                                $ekle = mysqli_query($db, "UPDATE posts SET post_title='$title', post_content='$content' where post_id = '$id'");
-                                echo '<div class="alert alert-success">Başarıyla Güncellendi.</div>';
+                                $ekle = $db->prepare("INSERT INTO posts SET post_title = ?, post_content = ? where post_id = ?");
+                                $islem = $sorgu->execute(array($title, $content, $id));
 
+                                if($islem){
+                                    echo '<div class="alert alert-success">Başarıyla güncellendi.</div>';
+                                }else{
+                                    echo '<div class="alert alert-danger">Sistemsel bir hata oluştu.</div>';
+                                }
+                                
                                 header("Refresh:1; url=duzenle.php?duzid=$id");
                             }
 
